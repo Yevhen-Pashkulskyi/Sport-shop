@@ -1,0 +1,63 @@
+@startuml
+enum ProductType {
++  T_SHIRT
++  CAP
+- String name
++ String toString()
+}
+
+
+class AppSportShop {
++ {static} void main(String[])
+}
+
+enum Manufacturer {
++  ACTIVE_SPORTS
++  SMART_CAPS
+- String name
++ String toString()
+}
+
+
+class Product {
+- ProductType productType
+- Color color
+- Manufacturer manufacturer
+~ double price
++ String toString()
+}
+
+
+class Product$Builder {
+- ProductType productType
+- Color color
+- Manufacturer manufacturer
+- double price
++ Builder withColor(Color)
++ Builder withManufacturer(Manufacturer)
++ Builder withPrice(double)
++ Product build()
+}
+
+
+enum Color {
++  RED
++  BLUE
++  BLACK
++  WHITE
++ String toString()
+}
+
+
+class Order {
+- Product tShirt
+- Product cap
++ double getTotalPrice()
++ String toString()
+}
+
+
+
+
+Product +.. Product$Builder
+@enduml
